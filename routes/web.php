@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/signin',[AuthController::class,'signin']);
+
+
+Route::get('/signup',[App\Http\Controllers\AuthController::class,'index']);
+Route::get('/signout',[AuthController::class,'signout']);
+Route::get('/update',[AuthController::class,'update']);
+Route::post('/upload',[ChatController::class,'store']);
+Route::get('/uploader',[ChatController::class,'index']);
+
+
+
